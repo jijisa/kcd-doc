@@ -1,0 +1,15 @@
+This repo(dev_env) is for development environment.
+
+It includes:
+
+* rule of vim
+.vimrc
+.vim
+.vim/ftplugin
+.vim/ftplugin/html.vim
+.vim/ftplugin/js.vim
+.vim/ftplugin/python.vim
+.vim/ftplugin/css.vim
+
+Copy the files into your home directory before you start to code.
+
