@@ -527,7 +527,9 @@ $ sudo vi /etc/kubernetes/cni/net.d/10-calico.conf
     "status": {
       "phase": "Active"
     }
+    ```
   - Calico policy-agent runs in its own calico-system namespace. Create it.
+    ```
     $ curl -H "Content-Type: application/json" -XPOST -d'{"apiVersion":"v1","kind":"Namespace","metadata":{"name":"calico-system"}}' "http://127.0.0.1:8080/api/v1/namespaces"
     {
       "kind": "Namespace",
@@ -547,11 +549,11 @@ $ sudo vi /etc/kubernetes/cni/net.d/10-calico.conf
       "status": {
         "phase": "Active"
       }
-
+      ```
 * Enable network policy API
   - Network policy in Kubernetes is implemented as a third party resource.
-  - $ curl -H "Content-Type: application/json" -XPOST
-    http://127.0.01:8080/apis/extensions/v1beta1/namespaces/default/thirdpartyresources --data-binary @- <<BODY
+    ```
+    $ curl -H "Content-Type: application/json" -XPOST http://127.0.01:8080/apis/extensions/v1beta1/namespaces/default/thirdpartyresources --data-binary @- <<BODY
     > {
     >   "kind": "ThirdPartyResource",
     >   "apiVersion": "extensions/v1beta1",
@@ -585,7 +587,7 @@ $ sudo vi /etc/kubernetes/cni/net.d/10-calico.conf
         }
       ]
     }
-
+    ```
   - check the health of kubelet systemd unit
     $ sudo systemctl status kubelet.service
 
